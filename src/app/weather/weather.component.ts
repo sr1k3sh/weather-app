@@ -78,7 +78,7 @@ export class WeatherComponent implements OnInit {
     let that = this;
     setTimeout(function(){
       that.apis.unsubscribe();
-    },3000);
+    },10000);
 
     setInterval(()=>{
       this.time = {hour:this.getCurrentDate().hour,minute:this.getCurrentDate().minutes, sec:this.getCurrentDate().seconds};

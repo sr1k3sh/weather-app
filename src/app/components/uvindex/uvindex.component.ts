@@ -69,11 +69,6 @@ export class UvindexComponent implements OnInit {
         this.current = searchresult.currently;
       });
     });
-
-    let that = this;
-    setTimeout(function(){
-      that.apis.unsubscribe();
-    },3000);
   }
 
   ngOnDestroy():void{

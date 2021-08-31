@@ -69,6 +69,7 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.apis = this.req.getPosition().subscribe(pos=>{
       let requestApi = this.req.requestApi(pos.lat,pos.lng);
+      console.log('test')
       requestApi.subscribe( (searchresult:SearchResults) =>{
         this.currentLocation = searchresult.timezone;
         this.hourly = searchresult.hourly;
@@ -76,9 +77,6 @@ export class WeatherComponent implements OnInit {
     });
 
     let that = this;
-    setTimeout(function(){
-      that.apis.unsubscribe();
-    },10000);
 
     setInterval(()=>{
       this.time = {hour:this.getCurrentDate().hour,minute:this.getCurrentDate().minutes, sec:this.getCurrentDate().seconds};

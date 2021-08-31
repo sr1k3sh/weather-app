@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SearchResults } from '../utls/interfaces';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class RequestApiService {
   }
 
   requestApi(lat:number,lng:number):Observable<SearchResults>{
-    return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`);
+    return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
   }
 
   testApi():any{
@@ -44,7 +45,7 @@ export class RequestApiService {
           navigator.geolocation.clearWatch(watchId);
         }
       };
-    });
+    }).pipe(take(1));
 
   }
 

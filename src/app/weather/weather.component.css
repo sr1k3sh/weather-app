@@ -1,0 +1,62 @@
+
+ng-scrollbar {
+    --scrollbar-size: 8px;
+    --scrollbar-thumb-color: rgb(21, 101, 192);
+    --scrollbar-thumb-hover-color: rgb(185, 43, 39);
+    /* --scrollbar-border-radius: 4px; */
+    width: 100%;
+}
+.weather-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.weather-card div.clock{
+    font-size: 10rem;
+    color:#fff;
+    z-index: 1;
+}
+.hourly-update-card{
+    display: flex;
+    width: calc(100vw - 200px);
+    /* overflow-x: scroll; */
+    height: 120px;
+    /* border:1px solid; */
+    border-radius: 5px;
+    background-color: #13131375;
+    backdrop-filter: blur(5px);
+    padding: 14px 16px;
+}
+.hourly-update-card ul{
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.weather-card .weather-location{
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.weather-card .weather-summary{
+    color: #fff;
+    margin-bottom: 20px;
+}
+.hourly-update-card ul li{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    width: 100px;
+}
+.hourly-update-card ul li .hourly-sum{
+    width:98px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    text-overflow: ellipsis;
+}

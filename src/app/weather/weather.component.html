@@ -1,0 +1,50 @@
+<div class="weather-card" *ngIf="hourly">
+    <div class="clock" [@inOutAnimation] *ngIf="time">{{time.hour}}:{{time.minute}}:{{time.sec}}</div>
+    <div class="weather-location" [@fadeInAnimation]>{{currentLocation}}</div>
+    <div class="weather-summary" [@fadeInAnimation]>{{hourly.summary}}</div>
+    <div class="hourly-update-card" [@fadeInAnimation]>
+        <ng-scrollbar #scrollable track="all" pointerEventsMethod="scrollbar">
+            <ul>
+                <li *ngFor="let val of hourly.data">
+                    <div>{{val.time | date:'shortTime'}}</div>
+                    <div class="hourly-sum">{{val.summary}}</div>
+                    <div>{{val.temperature}}F</div>
+                    <div [ngSwitch]="val.icon">
+                        <div *ngSwitchCase="'cloudy'">
+                            <img src="./../../assets/svgs/cloudy.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'rain'">
+                            <img src="./../../assets/svgs/rain.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'rainy'">
+                            <img src="./../../assets/svgs/rain.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'clear-day'">
+                            <img src="./../../assets/svgs/sun.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'clear-night'">
+                            <img src="./../../assets/svgs/half-moon.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'sleet'">
+                            <img src="./../../assets/svgs/sleet.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'snow'">
+                            <img src="./../../assets/svgs/snow.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'fog'">
+                            <img src="./../../assets/svgs/mist.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'mist'">
+                            <img src="./../../assets/svgs/mist.svg"/>
+                        </div>
+                        <div *ngSwitchCase="'moon'">
+                            <img src="./../../assets/svgs/moon.svg"/>
+                        </div>
+                        <div *ngSwitchDefault><img src="./../../assets/svgs/sleet.svg"/></div>
+                    </div>
+                </li>
+            </ul>
+        </ng-scrollbar>
+    </div>
+    <app-uvindex></app-uvindex>
+</div>

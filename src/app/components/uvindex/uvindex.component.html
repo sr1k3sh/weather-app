@@ -1,0 +1,11 @@
+<div class="card-holder" *ngIf="current" [@fadeInAnimation]>
+    <div class="uv-card card" [@fadeInAnimation]>
+        <div class="card-title">uv index</div>
+        <div class="card-details">
+            <div class="uv-index-val">{{current.uvIndex}}</div>
+            <span>{{current.uvIndex<0.5?"LOW":"HIGH"}}</span>
+            <div class="gradient-line"></div>
+            <span>{{current.uvIndex<0.5?"Low for rest of day":"High for rest of day"}}</span>
+        </div>
+    </div>
+</div>

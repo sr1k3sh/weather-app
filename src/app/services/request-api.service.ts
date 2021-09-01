@@ -16,7 +16,7 @@ export class RequestApiService {
   requestApi(lat:number,lng:number):Observable<SearchResults>{
     // return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
     //while deploying
-    return this.http.get<SearchResults>(`https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
+    return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
   }
 
   testApi(lat:number,lng:number):Observable<SearchResults>{

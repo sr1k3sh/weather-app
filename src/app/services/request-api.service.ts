@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SearchResults } from '../utls/interfaces';
 import { take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class RequestApiService {
     //while deploying
     let header = new HttpHeaders();
     header.append('Access-Control-Allow-Origin', '*');
-    return this.http.get<SearchResults>(`/api/${lat},${lng}`,{headers:header}).pipe(take(1));
+    return this.http.get<SearchResults>(`${environment.backend.baseURL}/${lat},${lng}`,{headers:header}).pipe(take(1));
   }
 
   testApi(lat:number,lng:number):Observable<SearchResults>{

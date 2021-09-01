@@ -14,16 +14,16 @@ export class RequestApiService {
   }
 
   requestApi(lat:number,lng:number):Observable<SearchResults>{
-    return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
+    // return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
     //while deploying
-    // return this.http.get<SearchResults>(`https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
+    return this.http.get<SearchResults>(`https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
   }
 
   testApi():any{
     //http://www.nepalstock.com/stocklive
-    return this.http.get<SearchResults>(`http://www.nepalstock.com/stocklive`);
+    // return this.http.get<SearchResults>(`http://www.nepalstock.com/stocklive`);
 
-    //return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&APPID=48e7d8cbcc9406a77fe837a3f041fb02`);
+    return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://pro.openweathermap.org/data/2.5/forecast/hourly?q=London,us&mode=xml&appid=48e7d8cbcc9406a77fe837a3f041fb02`);
   }
 
   getPosition():Observable<any>{

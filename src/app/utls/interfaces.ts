@@ -4,5 +4,9 @@ export interface SearchResults {
     summary: string;
     hourly: object;
     results: Array<object>;
-    currently: object;
+    currently:object;
+}
+
+export interface CurrentResults {
+    uvIndex:number;
 }

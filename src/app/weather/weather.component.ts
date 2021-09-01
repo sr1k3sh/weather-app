@@ -55,7 +55,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 
 export class WeatherComponent implements OnInit {
 
-  public totalAngularPackages:any;
+  public current:any;
   public currentLocation:any;
   public hourly:any;
 
@@ -69,17 +69,18 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.apis = this.req.getPosition().subscribe(pos=>{
       let requestApi = this.req.requestApi(pos.lat,pos.lng);
-      console.log('test')
       requestApi.subscribe( (searchresult:SearchResults) =>{
         this.currentLocation = searchresult.timezone;
         this.hourly = searchresult.hourly;
+        this.current = searchresult.currently;
       });
     });
 
     let that = this;
-
+    // this.req.testApi().subscribe((d:any)=>{
+    // })
     setInterval(()=>{
-      this.time = {hour:this.getCurrentDate().hour,minute:this.getCurrentDate().minutes, sec:this.getCurrentDate().seconds};
+      this.time = {hour:this.getCurrentDate().hour,minute:this.getCurrentDate().minutes, sec:this.getCurrentDate().seconds<10?"0"+this.getCurrentDate().seconds:this.getCurrentDate().seconds};
     },1000);
   }
 
@@ -97,12 +98,3 @@ export class WeatherComponent implements OnInit {
 
 
 }
-
-// interface SearchResults {
-//   total: number;
-//   timezone: string;
-//   summary: string;
-//   hourly: object;
-//   results: Array<object>;
-//   currently: object;
-// }

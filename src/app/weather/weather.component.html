@@ -1,14 +1,15 @@
 <div class="weather-card" *ngIf="hourly">
     <div class="clock" [@inOutAnimation] *ngIf="time">{{time.hour}}:{{time.minute}}:{{time.sec}}</div>
+    <!-- <div class="current-temp" [@inOutAnimation] *ngIf="current">{{current.temperature | temperatureConverter:"C"}} °C</div> -->
     <div class="weather-location" [@fadeInAnimation]>{{currentLocation}}</div>
     <div class="weather-summary" [@fadeInAnimation]>{{hourly.summary}}</div>
     <div class="hourly-update-card" [@fadeInAnimation]>
         <ng-scrollbar #scrollable track="all" pointerEventsMethod="scrollbar">
             <ul>
                 <li *ngFor="let val of hourly.data">
-                    <div>{{val.time | date:'shortTime'}}</div>
+                    <div>{{val.time*1000 | date:'shortTime'}}</div>
                     <div class="hourly-sum">{{val.summary}}</div>
-                    <div>{{val.temperature}}F</div>
+                    <div>{{val.temperature | temperatureConverter:"C"}} °C</div>
                     <div [ngSwitch]="val.icon">
                         <div *ngSwitchCase="'cloudy'">
                             <img src="./../../assets/svgs/cloudy.svg"/>
@@ -47,4 +48,8 @@
         </ng-scrollbar>
     </div>
     <app-uvindex></app-uvindex>
+
+    <div *ngIf="current">
+        <app-currentweather [item]="current"></app-currentweather>
+    </div>
 </div>

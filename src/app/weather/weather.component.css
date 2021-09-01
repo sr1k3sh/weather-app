@@ -14,7 +14,12 @@ ng-scrollbar {
     z-index: 1;
 }
 .weather-card div.clock{
-    font-size: 10rem;
+    font-size: 8rem;
+    color:#fff;
+    z-index: 1;
+}
+.weather-card .current-temp{
+    font-size: 6rem;
     color:#fff;
     z-index: 1;
 }

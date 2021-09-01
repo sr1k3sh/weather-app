@@ -12,12 +12,17 @@ import { UvindexComponent } from './components/uvindex/uvindex.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BackgroundComponent } from './components/background/background.component';
 
+import { TemperatureConverterPipe } from './utls/TemperatureConverter';
+import { CurrentweatherComponent } from './components/currentweather/currentweather.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     UvindexComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    TemperatureConverterPipe,
+    CurrentweatherComponent
   ],
   imports: [
     BrowserModule,

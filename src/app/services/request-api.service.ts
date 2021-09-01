@@ -16,7 +16,9 @@ export class RequestApiService {
   requestApi(lat:number,lng:number):Observable<SearchResults>{
     // return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
     //while deploying
-    return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`).pipe(take(1));
+    let header = new HttpHeaders();
+    header.append('Access-Control-Allow-Origin', '*');
+    return this.http.get<SearchResults>(`/api/${lat},${lng}`,{headers:header}).pipe(take(1));
   }
 
   testApi(lat:number,lng:number):Observable<SearchResults>{
@@ -24,7 +26,7 @@ export class RequestApiService {
     // return this.http.get<SearchResults>(`http://www.nepalstock.com/stocklive`);
     let header = new HttpHeaders();
     header.append('Access-Control-Allow-Origin', '*');
-    return this.http.get<SearchResults>(`https://api.darksky.net/forecast/8adaa664d67a4ecfcc5aff8a99260f16/${lat},${lng}`,{headers:header}).pipe(take(1));
+    return this.http.get<SearchResults>(`/api/${lat},${lng}`,{headers:header}).pipe(take(1));
     // return this.http.get<SearchResults>(`https://cors-anywhere.herokuapp.com/https://pro.openweathermap.org/data/2.5/forecast/hourly?q=London,us&mode=xml&appid=48e7d8cbcc9406a77fe837a3f041fb02`);
   }
 

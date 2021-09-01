@@ -74,6 +74,9 @@ export class WeatherComponent implements OnInit {
         this.hourly = searchresult.hourly;
         this.current = searchresult.currently;
       });
+      this.req.testApi(pos.lat,pos.lng).subscribe(d=>{
+        console.log(d,'test')
+      })
     });
 
     let that = this;

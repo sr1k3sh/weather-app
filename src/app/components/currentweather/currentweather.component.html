@@ -1,11 +1,7 @@
-<p>currentweather works!</p>
-<div class="card-holder" *ngIf="item" [@fadeInAnimation]>
-    <div class="uv-card card" [@fadeInAnimation]>
-        <div class="card-details">
-            <!-- <div class="uv-index-val">{{item.uvIndex}}</div>
-            <span>{{item.uvIndex<0.5?"LOW":"HIGH"}}</span>
-            <div class="gradient-line"></div>
-            <span>{{item.uvIndex<0.5?"Low for rest of day":"High for rest of day"}}</span> -->
-        </div>
+<div class="uv-card card" [@fadeInAnimation]>
+    <div class="card-title">Current Weather</div>
+    <div class="card-details" *ngIf="item" [@fadeInAnimation]>
+        <div class="uv-index-val" >{{item.temperature | temperatureConverter :"C"}}°C</div>
+        <app-weathericon icon={{item.icon}} width="54"></app-weathericon>
     </div>
 </div>

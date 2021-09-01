@@ -63,6 +63,8 @@ export class WeatherComponent implements OnInit {
 
   public apis: any ;
 
+  public icon: any = 'rain';
+
   constructor(private req: RequestApiService) {
   }
 

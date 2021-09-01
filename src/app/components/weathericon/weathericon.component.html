@@ -1,0 +1,36 @@
+<div [ngSwitch]="icon">
+    <div *ngSwitchCase="'cloudy'">
+        <img [width]="width" src="assets/svgs/cloudy.svg"/>
+    </div>
+    <div *ngSwitchCase="'rain'">
+        <img [width]="width" src="assets/svgs/rain.svg"/>
+    </div>
+    <div *ngSwitchCase="'rainy'">
+        <img [width]="width" src="assets/svgs/rain.svg"/>
+    </div>
+    <div *ngSwitchCase="'clear-day'">
+        <img [width]="width" src="assets/svgs/sun.svg"/>
+    </div>
+    <div *ngSwitchCase="'clear-night'">
+        <img [width]="width" src="assets/svgs/half-moon.svg"/>
+    </div>
+    <div *ngSwitchCase="'sleet'">
+        <img [width]="width" src="assets/svgs/sleet.svg"/>
+    </div>
+    <div *ngSwitchCase="'snow'">
+        <img [width]="width" src="assets/svgs/snow.svg"/>
+    </div>
+    <div *ngSwitchCase="'fog'">
+        <img [width]="width" src="assets/svgs/mist.svg"/>
+    </div>
+    <div *ngSwitchCase="'mist'">
+        <img [width]="width" src="assets/svgs/mist.svg"/>
+    </div>
+    <div *ngSwitchCase="'moon'">
+        <img [width]="width" src="assets/svgs/moon.svg"/>
+    </div>
+    <div *ngSwitchCase="'partly-cloudy-night'">
+        <img [width]="width" [src]='"assets/svgs/moon.svg"'/>
+    </div>
+    <div *ngSwitchDefault><img [width]="width" src="assets/svgs/sleet.svg"/></div>
+</div>

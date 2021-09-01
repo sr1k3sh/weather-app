@@ -1,0 +1,12 @@
+<div class="hourly-update-card" [@fadeInAnimation]>
+    <ng-scrollbar #scrollable track="all" pointerEventsMethod="scrollbar">
+        <ul>
+            <li *ngFor="let val of hourly">
+                <div>{{val.time*1000 | date:'shortTime'}}</div>
+                <div class="hourly-sum">{{val.summary}}</div>
+                <div>{{val.temperature | temperatureConverter:"C"}} °C</div>
+                <app-weathericon icon={{val.icon}}></app-weathericon>
+            </li>
+        </ul>
+    </ng-scrollbar>
+</div>

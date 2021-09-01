@@ -71,8 +71,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "weather:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "weather:build:production"
             },
             "development": {
               "browserTarget": "weather:build:development",
@@ -109,8 +108,7 @@
           "options": {
             "outputPath": "dist/weather",
             "netlifyToken": "3z-jCBXyw2IksPSnZFhirjTXDVCB59wnacV0lvN-D-c",
-            "siteId": "04ea6410-1643-4794-8278-56f38301066d",
-            "proxyConfig": "src/proxy.conf.prod.json"
+            "siteId": "04ea6410-1643-4794-8278-56f38301066d"
           }
         }
       }

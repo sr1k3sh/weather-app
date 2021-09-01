@@ -69,11 +69,15 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.apis = this.req.getPosition().subscribe(pos=>{
       let requestApi = this.req.requestApi(pos.lat,pos.lng);
-      requestApi.subscribe( (searchresult:SearchResults) =>{
-        this.currentLocation = searchresult.timezone;
-        this.hourly = searchresult.hourly;
-        this.current = searchresult.currently;
-      });
+      // requestApi.subscribe( (searchresult:SearchResults) =>{
+      //   this.currentLocation = searchresult.timezone;
+      //   this.hourly = searchresult.hourly;
+      //   this.current = searchresult.currently;
+      // });
+
+      this.req.testApi(pos.lat,pos.lng).subscribe((d:SearchResults)=>{
+        console.log('test',d);
+      })
     });
 
     let that = this;

@@ -19,7 +19,6 @@ export class RequestApiService {
     //while deploying
     let header = new HttpHeaders();
     header.append('Access-Control-Allow-Origin', '*');
-    console.log(environment.backend.baseURL)
     return this.http.get<SearchResults>(`${environment.backend.baseURL}/${lat},${lng}`,{headers:header}).pipe(take(1));
   }
 

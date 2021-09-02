@@ -5,6 +5,8 @@ ng-scrollbar {
     --scrollbar-thumb-hover-color: rgb(138, 43, 226);
     /* --scrollbar-border-radius: 4px; */
     width: calc(100vw - 40px);
+    box-shadow:5px 0px 10px 2px #ffffff0f;
+    border-radius: 3px;
 }
 .ng-scrollbar-wrapper{
     display: flex;

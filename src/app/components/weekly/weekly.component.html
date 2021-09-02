@@ -1,0 +1,13 @@
+<div class="card-holder" [@fadeInAnimation]>
+    <app-floattitle floatTitle="Weekly Details"></app-floattitle>
+    <div class="weeekly-weather-holder" *ngFor="let val of daily.data; index as i">
+        <app-weathericon icon={{val.icon}} width="42"></app-weathericon>
+        <div class="temperature-title" *ngIf="i==0">Today</div>
+        <div class="temperature-title" *ngIf="i!=0">{{val.time*1000 | date:'EEEE'}}</div>
+        <div class="temperature-index-wrapper">
+            <span >{{val.temperatureMin | temperatureConverter:"C"}}°</span>
+            <span class="temperature-index" [ngStyle]="{ 'width' : val.temperatureMax+'%' }"></span>
+            <span>{{val.temperatureMax | temperatureConverter:"C"}}°</span>
+        </div>
+    </div>
+</div>

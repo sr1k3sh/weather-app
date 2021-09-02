@@ -5,6 +5,7 @@ ng-scrollbar {
     --scrollbar-thumb-hover-color: rgb(138, 43, 226);
     /* --scrollbar-border-radius: 4px; */
     width: 100%;
+    box-shadow: none;
 }
 
 .hourly-update-card{

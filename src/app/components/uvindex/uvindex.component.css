@@ -1,12 +1,12 @@
 .card-holder{
   display: flex;
-  margin-bottom: 20px;
   width: calc(100vw - 100px);
   height: 100%;
   border-radius: 5px;
   background-color: #13131375;
   backdrop-filter: blur(5px);
   padding: 14px 16px;
+  margin: 20px;
 }
 .card{
     display: flex;

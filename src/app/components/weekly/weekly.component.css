@@ -1,0 +1,39 @@
+.card-holder{
+    display: flex;
+    margin-bottom: 20px;
+    width: calc(100vw - 100px);
+    height: 100%;
+    border-radius: 5px;
+    background-color: #13131375;
+    backdrop-filter: blur(5px);
+    padding: 14px 16px;
+    flex-direction: column;
+}
+.weeekly-weather-holder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.temperature-title{
+    color:#fff;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.temperature-index-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin:0 5%;
+}
+.temperature-index{
+    background-color: blueviolet;
+    height: 15px;
+    border-radius: 10px;
+    margin:0 20px;
+    box-shadow: 5px 0px 10px 2px #8a2be27d;
+}

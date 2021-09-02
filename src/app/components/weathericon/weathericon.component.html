@@ -32,5 +32,8 @@
     <div *ngSwitchCase="'partly-cloudy-night'">
         <img [width]="width" [src]='"assets/svgs/moon.svg"'/>
     </div>
+    <div *ngSwitchCase="'partly-cloudy-day'">
+        <img [width]="width" [src]='"assets/svgs/cloudy.svg"'/>
+    </div>
     <div *ngSwitchDefault><img [width]="width" src="assets/svgs/sleet.svg"/></div>
 </div>

@@ -1,55 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestApiService } from '../services/request-api.service';
 import { SearchResults } from '../utls/interfaces';
-import { trigger, style, animate, transition } from '@angular/animations';
+import { customAnimation } from '../utls/animations';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
-  animations: [
-    trigger(
-      'inOutAnimation',
-      [
-        transition(
-          ':enter',
-          [
-            style({ height: 0, opacity: 0 }),
-            animate('1s ease-out',
-                    style({ height: 200, opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave',
-          [
-            style({ height: 300, opacity: 1 }),
-            animate('1s ease-in',
-                    style({ height: 0, opacity: 0 }))
-          ]
-        )
-      ]
-    ),
-    trigger(
-      'fadeInAnimation',
-      [
-        transition(
-          ':enter',
-          [
-            style({ opacity: 0 }),
-            animate('1s ease-out',
-                    style({opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave',
-          [
-            style({ height: 300, opacity: 1 }),
-            animate('1s ease-in',
-                    style({ height: 0, opacity: 0 }))
-          ]
-        )
-      ]
-    )
-  ]
+  animations: customAnimation
 })
 
 
@@ -65,6 +22,8 @@ export class WeatherComponent implements OnInit {
 
   public icon: any = 'rain';
 
+  public daily: any;
+
   constructor(private req: RequestApiService) {
   }
 
@@ -75,6 +34,8 @@ export class WeatherComponent implements OnInit {
         this.currentLocation = searchresult.timezone;
         this.hourly = searchresult.hourly;
         this.current = searchresult.currently;
+        this.daily = searchresult.daily;
+        console.log(this.daily)
       });
       // this.req.testApi(pos.lat,pos.lng).subscribe(d=>{
       //   console.log(d,'test')

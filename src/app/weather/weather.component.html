@@ -3,9 +3,15 @@
     <!-- <div class="current-temp" [@inOutAnimation] *ngIf="current">{{current.temperature | temperatureConverter:"C"}} °C</div> -->
     <div class="weather-location" [@fadeInAnimation]>{{currentLocation}}</div>
     <div class="weather-summary" [@fadeInAnimation]>{{hourly.summary}}</div>
+    <ng-scrollbar>
+        <div class="ng-scrollbar-wrapper">
+            <app-uvindex [current]="current"  [hourly]="hourly.data" [daily]="daily"></app-uvindex>
 
-    <app-uvindex></app-uvindex>
+            <app-hourlyweather [hourly]="hourly.data"></app-hourlyweather>
 
-    <app-hourlyweather [hourly]="hourly.data"></app-hourlyweather>
+            <app-hourlyweather [hourly]="hourly.data"></app-hourlyweather>
+
+        </div>
+    </ng-scrollbar>
 
 </div>

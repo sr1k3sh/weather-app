@@ -1,1 +1,12 @@
-@import "./../../weather/weather.component.css"
+@import "./../../weather/weather.component.css";
+ng-scrollbar {
+    --scrollbar-size: 4px;
+    --scrollbar-thumb-color: rgb(138, 43, 226,0.3);
+    --scrollbar-thumb-hover-color: rgb(138, 43, 226);
+    /* --scrollbar-border-radius: 4px; */
+    width: 100%;
+}
+
+.hourly-update-card{
+    margin-bottom: 20px;
+}

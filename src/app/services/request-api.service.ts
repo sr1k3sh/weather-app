@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SearchResults } from '../utls/interfaces';
+import { OpenResults, SearchResults } from '../utls/interfaces';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
@@ -22,6 +22,10 @@ export class RequestApiService {
     header.append('Content-Type', 'application/x-www-form-urlencoded');
     header.append('Origin', 'X-Requested-With');
     return this.http.get<SearchResults>(`${environment.backend.baseURL}/${lat},${lng}`,{headers:header}).pipe(take(1));
+  }
+
+  requestOpenWeather(lat:number,lng:number):Observable<OpenResults>{
+    return this.http.get<OpenResults>(`https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=48e7d8cbcc9406a77fe837a3f041fb02`).pipe(take(1));
   }
 
   testApi(lat:number,lng:number):Observable<SearchResults>{

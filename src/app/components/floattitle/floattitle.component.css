@@ -1,0 +1,13 @@
+.card-holder-title{
+    color: #fff;
+    background-color: #8a2be2;
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%, -50%);
+    transform-origin: left top;
+    z-index: 18;
+    padding: 10px 10px;
+    box-shadow: -1px 1px 12px 1px #8a2be2;
+    border-radius: 3px;
+}

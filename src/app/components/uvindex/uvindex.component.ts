@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RequestApiService } from 'src/app/services/request-api.service';
-import { CurrentResults, SearchResults } from 'src/app/utls/interfaces';
 import { customAnimation } from 'src/app/utls/animations';
 
 @Component({
@@ -13,21 +12,23 @@ import { customAnimation } from 'src/app/utls/animations';
 })
 export class UvindexComponent implements OnInit {
 
-  public current:any;
+  // public current:any;
 
   public apis: any ;
+
+  @Input() current:any ;
+
+  @Input() hourly:any;
+
+  @Input() daily:any;
+
+  public floatTitle = "test";
 
   constructor(private req:RequestApiService) {
 
   }
 
   ngOnInit(): void {
-    this.apis = this.req.getPosition().subscribe(pos=>{
-      let requestApi = this.req.requestApi(pos.lat,pos.lng);
-      requestApi.subscribe( (searchresult:SearchResults) =>{
-        this.current = searchresult.currently;
-      });
-    });
   }
 
   ngOnDestroy():void{

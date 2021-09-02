@@ -1,4 +1,5 @@
 <div class="card-holder" [@fadeInAnimation]>
+    <app-floattitle floatTitle="Weather Details"></app-floattitle>
     <div class="uv-card card" [@fadeInAnimation]>
         <div class="card-title">uv index</div>
         <div class="card-details" *ngIf="current" [@fadeInAnimation]>
@@ -9,6 +10,5 @@
         </div>
     </div>
 
-    <app-currentweather [item]="current"></app-currentweather>
-
+    <app-currentweather [item]="current" [hourly]="hourly" [daily]="daily"></app-currentweather>
 </div>

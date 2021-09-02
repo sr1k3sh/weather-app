@@ -16,6 +16,7 @@ import { TemperatureConverterPipe } from './utls/TemperatureConverter';
 import { CurrentweatherComponent } from './components/currentweather/currentweather.component';
 import { WeathericonComponent } from './components/weathericon/weathericon.component';
 import { HourlyweatherComponent } from './components/hourlyweather/hourlyweather.component';
+import { FloattitleComponent } from './components/floattitle/floattitle.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HourlyweatherComponent } from './components/hourlyweather/hourlyweather
     TemperatureConverterPipe,
     HourlyweatherComponent,
     CurrentweatherComponent,
-    WeathericonComponent
+    WeathericonComponent,
+    FloattitleComponent
   ],
   imports: [
     BrowserModule,

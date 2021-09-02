@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RequestApiService } from 'src/app/services/request-api.service';
 import { customAnimation } from 'src/app/utls/animations';
 @Component({
   selector: 'app-currentweather',
@@ -10,11 +11,16 @@ export class CurrentweatherComponent implements OnInit {
 
   @Input() item:any = "";
 
-  constructor() { }
+  @Input() current:any ;
+
+  @Input() hourly:any;
+
+  @Input() daily:any;
+
+  constructor(private http:RequestApiService) { }
 
   ngOnInit(): void {
-    console.log(this.item,'here to')
-
+    console.log(this.hourly,'here to');
   }
 
 }

@@ -2,6 +2,9 @@
     <div class="card-title">Current Weather</div>
     <div class="card-details" *ngIf="item" [@fadeInAnimation]>
         <div class="uv-index-val" >{{item.temperature | temperatureConverter :"C"}}°C</div>
-        <app-weathericon icon={{item.icon}} width="54"></app-weathericon>
+        <div class="card-weather-details">
+            <app-weathericon icon={{item.icon}} width="54"></app-weathericon>
+            <div class="flex-column"><div>H{{daily.data[0].temperatureHigh | temperatureConverter:"C"}}°C</div><div>L{{daily.data[0].temperatureLow | temperatureConverter:"C"}}°C</div></div>
+        </div>
     </div>
 </div>

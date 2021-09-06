@@ -31,8 +31,8 @@ export class WeeklyComponent implements OnInit {
     let that = this;
     Promise.resolve().then(()=>{
       that.identifierWidth = that.myIdentifier?.nativeElement.clientWidth;
-      console.log(that.myIdentifier?.nativeElement.clientWidth)
-    })
+    });
+
   }
 
   expandStatus(obj:object){
@@ -41,12 +41,12 @@ export class WeeklyComponent implements OnInit {
   }
 
   getHighTemp(){
-    var highArr = this.daily.data.map((d:any)=>d.apparentTemperatureHigh);
+    var highArr = this.daily.data.map((d:any)=>d.temperatureMax);
     return Math.max(...highArr)
   }
 
   getLowtemp(){
-    var lowArr = this.daily.data.map((d:any)=>d.apparentTemperatureLow);
+    var lowArr = this.daily.data.map((d:any)=>d.temperatureMin);
     return Math.min(...lowArr);
   }
 

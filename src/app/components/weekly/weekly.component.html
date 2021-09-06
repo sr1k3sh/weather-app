@@ -5,14 +5,17 @@
             <app-weathericon icon={{val.icon}} width="42"></app-weathericon>
             <div class="temperature-title" *ngIf="i==0">Today</div>
             <div class="temperature-title" *ngIf="i!=0">{{val.time*1000 | date:'EEEE'}}</div>
-            <div #myIdentifier class="temperature-index-wrapper" *ngIf="identifierWidth">
-                <span >{{val.temperatureMin | temperatureConverter:"C"}}°</span>
-                <span class="temperature-index" [ngStyle]="{ 'width' : ((val.temperatureMax-val.temperatureMin)/val.temperatureMax)*identifierWidth+'%' }"></span>
-                <span>{{val.temperatureMax | temperatureConverter:"C"}}°</span>
+            <div #myIdentifier class="temperature-index-wrapper" *ngIf="identifierWidth" [ngStyle]="{'left':((((val.temperatureMin - 32) / 1.8) - ((low - 32) /1.8))*10 - 2)+'%'}">
+                <!-- <div class="temperature-index-back" [ngStyle]="{'width': ((high-low)/high)*100+'%'}"> -->
+                    <span >{{val.temperatureMin | temperatureConverter:"C"}}°</span>
+                    <span class="temperature-index" [ngStyle]="{ 'width' : (((val.temperatureMax-32)/1.8 - (val.temperatureMin-32)/1.8))*10+'%'}"></span>
+                    <span>{{val.temperatureMax | temperatureConverter:"C"}}°</span>
+                <!-- </div> -->
+
             </div>
             <app-addremove-icon data-index={{i}} (valueChange)="expandStatus($event)"></app-addremove-icon>
         </div>
-        <div class="weekly-weather-body" *ngIf="expandObj.expand && i==expandObj.index" [@slideDown]>
+        <div class="weekly-weather-body" *ngIf="expandObj.expand && i==expandObj.index">
             <div class="title">Clear throughout the day.</div>
             <div class="weather-body">
                 <div class="low-high" [@fadeInAnimation]>

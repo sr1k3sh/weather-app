@@ -6,6 +6,10 @@
     position: relative;
     cursor: pointer;
     transition: 0.3s all;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0%, -50%);
 }
 .add:hover{
     scale: 1.1;

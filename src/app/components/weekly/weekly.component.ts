@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
 import { customAnimation } from 'src/app/utls/animations';
 
 @Component({
@@ -11,10 +12,42 @@ export class WeeklyComponent implements OnInit {
 
   @Input() daily:any;
 
-  constructor() { }
+  @ViewChild('myIdentifier') myIdentifier?: ElementRef;
+
+  @Input() identifierWidth:number = 10;
+
+  public low:number = 0;
+  public high:number = 100;
+
+  public expandObj:any = {expand:false};
+  constructor() {}
 
   ngOnInit(): void {
-    console.log(this.daily)
+    this.low = this.getLowtemp();
+    this.high = this.getHighTemp();
+  }
+
+  ngAfterViewInit(): void{
+    let that = this;
+    Promise.resolve().then(()=>{
+      that.identifierWidth = that.myIdentifier?.nativeElement.clientWidth;
+      console.log(that.myIdentifier?.nativeElement.clientWidth)
+    })
+  }
+
+  expandStatus(obj:object){
+    this.expandObj = obj;
+    return obj;
+  }
+
+  getHighTemp(){
+    var highArr = this.daily.data.map((d:any)=>d.apparentTemperatureHigh);
+    return Math.max(...highArr)
+  }
+
+  getLowtemp(){
+    var lowArr = this.daily.data.map((d:any)=>d.apparentTemperatureLow);
+    return Math.min(...lowArr);
   }
 
 }

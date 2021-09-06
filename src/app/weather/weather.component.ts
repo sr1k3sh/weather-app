@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestApiService } from '../services/request-api.service';
 import { SearchResults } from '../utls/interfaces';
 import { customAnimation } from '../utls/animations';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -41,6 +42,8 @@ export class WeatherComponent implements OnInit {
       //   console.log(d,'test')
       // })
     });
+
+
 
     let that = this;
     // this.req.testApi().subscribe((d:any)=>{

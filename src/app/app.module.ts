@@ -18,6 +18,7 @@ import { WeathericonComponent } from './components/weathericon/weathericon.compo
 import { HourlyweatherComponent } from './components/hourlyweather/hourlyweather.component';
 import { FloattitleComponent } from './components/floattitle/floattitle.component';
 import { WeeklyComponent } from './components/weekly/weekly.component';
+import { AddremoveIconComponent } from './components/addremove-icon/addremove-icon.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { WeeklyComponent } from './components/weekly/weekly.component';
     CurrentweatherComponent,
     WeathericonComponent,
     FloattitleComponent,
-    WeeklyComponent
+    WeeklyComponent,
+    AddremoveIconComponent
   ],
   imports: [
     BrowserModule,

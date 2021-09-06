@@ -11,11 +11,22 @@
 }
 .weeekly-weather-holder{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     margin-bottom: 10px;
+    background-color: #f8f8f859;
+    backdrop-filter: blur(5px);
+    padding: 5px;
+    border-radius: 5px;
+}
+.weeekly-weather-holder .weekly-weather-head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 .temperature-title{
     color:#fff;
@@ -36,4 +47,29 @@
     border-radius: 10px;
     margin:0 20px;
     box-shadow: 5px 0px 10px 2px #8a2be27d;
+}
+
+.weekly-weather-body span{
+    color: #fff;
+}
+.weekly-weather-body .weather-body{
+    display: flex;
+    flex-direction: row;
+}
+.weekly-weather-body .weather-body .low-high,.weekly-weather-body .weather-body .rise-set{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+}
+.weekly-weather-body .weather-body .low-high .temperature{
+    font-size: 24px;
+}
+.rise-set>div,.weekly-weather-body .weather-body .low-high>div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.margin-right-10{
+    margin-right:10px;
 }

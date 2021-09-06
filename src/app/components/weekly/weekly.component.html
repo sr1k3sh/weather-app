@@ -1,13 +1,44 @@
 <div class="card-holder" [@fadeInAnimation]>
     <app-floattitle floatTitle="Weekly Details"></app-floattitle>
     <div class="weeekly-weather-holder" *ngFor="let val of daily.data; index as i">
-        <app-weathericon icon={{val.icon}} width="42"></app-weathericon>
-        <div class="temperature-title" *ngIf="i==0">Today</div>
-        <div class="temperature-title" *ngIf="i!=0">{{val.time*1000 | date:'EEEE'}}</div>
-        <div class="temperature-index-wrapper">
-            <span >{{val.temperatureMin | temperatureConverter:"C"}}°</span>
-            <span class="temperature-index" [ngStyle]="{ 'width' : val.temperatureMax+'%' }"></span>
-            <span>{{val.temperatureMax | temperatureConverter:"C"}}°</span>
+        <div class="weekly-weather-head">
+            <app-weathericon icon={{val.icon}} width="42"></app-weathericon>
+            <div class="temperature-title" *ngIf="i==0">Today</div>
+            <div class="temperature-title" *ngIf="i!=0">{{val.time*1000 | date:'EEEE'}}</div>
+            <div #myIdentifier class="temperature-index-wrapper" *ngIf="identifierWidth">
+                <span >{{val.temperatureMin | temperatureConverter:"C"}}°</span>
+                <span class="temperature-index" [ngStyle]="{ 'width' : ((val.temperatureMax-val.temperatureMin)/val.temperatureMax)*identifierWidth+'%' }"></span>
+                <span>{{val.temperatureMax | temperatureConverter:"C"}}°</span>
+            </div>
+            <app-addremove-icon data-index={{i}} (valueChange)="expandStatus($event)"></app-addremove-icon>
+        </div>
+        <div class="weekly-weather-body" *ngIf="expandObj.expand && i==expandObj.index" [@slideDown]>
+            <div class="title">Clear throughout the day.</div>
+            <div class="weather-body">
+                <div class="low-high" [@fadeInAnimation]>
+                    <div class="low margin-right-10">
+                        <span class="temperature margin-right-10">{{val.temperatureLow | temperatureConverter:"C"}}°</span>
+                        <span>{{val.temperatureLowTime*1000 | date:"hha"}}</span>
+                    </div>
+                    <div class="margin-right-10">
+                        <img width="12px" height="10px" src="/assets/svgs/fast-forward.svg"/>
+                    </div>
+                    <div class="high">
+                        <span class="temperature margin-right-10">{{val.temperatureHigh | temperatureConverter:"C"}}°</span>
+                        <span>{{val.temperatureHighTime*1000 | date:"hha"}}</span>
+                    </div>
+                </div>
+                <div class="rise-set" [@fadeInAnimation]>
+                    <div class="margin-right-10">
+                        <img width="32" src="assets/image/sunrise.png">
+                        <span>{{val.sunriseTime*1000 | date:"hha"}}</span>
+                    </div>
+                    <div>
+                        <img width="32" src="assets/image/sunset.png">
+                        <span>{{val.sunsetTime*1000 | date:"hha"}}</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

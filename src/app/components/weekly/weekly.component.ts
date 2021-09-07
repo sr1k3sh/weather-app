@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ExpandObj } from '../../utls/interfaces';
 import { customAnimation } from 'src/app/utls/animations';
 
 @Component({
@@ -19,7 +19,9 @@ export class WeeklyComponent implements OnInit {
   public low:number = 0;
   public high:number = 100;
 
-  public expandObj:any = {expand:false};
+  public expandObj:ExpandObj = {};
+
+  public detailData:any = "";
   constructor() {}
 
   ngOnInit(): void {
@@ -27,16 +29,23 @@ export class WeeklyComponent implements OnInit {
     this.high = this.getHighTemp();
   }
 
+  ngOnChanges():void{
+    this.low = this.getLowtemp();
+    this.high = this.getHighTemp();
+    console.log('changed',this.low,this.daily.data)
+  }
+
   ngAfterViewInit(): void{
     let that = this;
     Promise.resolve().then(()=>{
       that.identifierWidth = that.myIdentifier?.nativeElement.clientWidth;
     });
-
   }
 
   expandStatus(obj:object){
     this.expandObj = obj;
+    let id = this.expandObj.index? this.expandObj.index : 0;
+    this.expandObj.data = this.daily.data[id];
     return obj;
   }
 

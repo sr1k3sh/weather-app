@@ -62,7 +62,8 @@ ng-scrollbar {
 .weather-card .weather-location{
     color: #fff;
     font-size: 22px;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    display: inline-flex;
 }
 .weather-card .weather-summary{
     color: #fff;
@@ -82,4 +83,11 @@ ng-scrollbar {
     white-space: nowrap;
     text-align: center;
     text-overflow: ellipsis;
+}
+.google-input{
+    padding: 10px;
+    border-radius: 5px;
+    background: none;
+    color: #fff;
+    border: 1px solid #8a2be2;
 }

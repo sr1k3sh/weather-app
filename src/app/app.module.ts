@@ -19,7 +19,7 @@ import { HourlyweatherComponent } from './components/hourlyweather/hourlyweather
 import { FloattitleComponent } from './components/floattitle/floattitle.component';
 import { WeeklyComponent } from './components/weekly/weekly.component';
 import { AddremoveIconComponent } from './components/addremove-icon/addremove-icon.component';
-
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,8 @@ import { AddremoveIconComponent } from './components/addremove-icon/addremove-ic
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    GooglePlaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

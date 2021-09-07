@@ -44,21 +44,28 @@
     /* margin:0 5%; */
 }
 .temperature-index{
-    background-color: blueviolet;
+    background-color: #fff;
     height: 15px;
     border-radius: 10px;
     margin:0 20px;
     box-shadow: 5px 0px 10px 2px #8a2be27d;
 }
 
-.temperature-index-wrapper .temperature-index-back{
-    background-color: #282424;
-    position: relative;
-    height: 15px;
-    border-radius: 10px;
+.temperature-index-back{
+    width: 70%;
+    background-color: #2e2838;
+    position: absolute;
+    height: 30px;
+    left: 19%;
+    border-radius: 15px;
+    top: 13px;
 }
 .weekly-weather-body span{
     color: #fff;
+}
+.weekly-weather-body .title{
+    color: #fff;
+    text-align: center;
 }
 .weekly-weather-body .weather-body{
     display: flex;

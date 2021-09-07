@@ -1,7 +1,8 @@
 <div class="weather-card" *ngIf="hourly">
     <div class="clock" [@inOutAnimation] *ngIf="time">{{time.hour}}:{{time.minute}}:{{time.sec}}</div>
+    <input class="google-input" ngx-google-places-autocomplete (onAddressChange)="handleAddressChange($event)" />
     <!-- <div class="current-temp" [@inOutAnimation] *ngIf="current">{{current.temperature | temperatureConverter:"C"}} °C</div> -->
-    <div class="weather-location" [@fadeInAnimation]>{{currentLocation}}</div>
+    <div class="weather-location" [@fadeInAnimation]>{{currentLocation}} <app-weathericon width="24" icon={{placeholder}}></app-weathericon></div>
     <div class="weather-summary" [@fadeInAnimation]>{{hourly.summary}}</div>
     <ng-scrollbar>
         <div class="ng-scrollbar-wrapper">

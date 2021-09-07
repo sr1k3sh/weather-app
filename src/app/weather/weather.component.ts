@@ -25,6 +25,8 @@ export class WeatherComponent implements OnInit {
 
   public daily: any;
 
+  public placeholder: string = "placeholder";
+
   constructor(private req: RequestApiService) {
   }
 
@@ -36,21 +38,23 @@ export class WeatherComponent implements OnInit {
         this.hourly = searchresult.hourly;
         this.current = searchresult.currently;
         this.daily = searchresult.daily;
-        console.log(this.daily)
       });
-      // this.req.testApi(pos.lat,pos.lng).subscribe(d=>{
-      //   console.log(d,'test')
-      // })
     });
 
-
-
-    let that = this;
-    // this.req.testApi().subscribe((d:any)=>{
-    // })
     setInterval(()=>{
       this.time = {hour:this.getCurrentDate().hour,minute:this.getCurrentDate().minutes, sec:this.getCurrentDate().seconds<10?"0"+this.getCurrentDate().seconds:this.getCurrentDate().seconds};
     },1000);
+  }
+
+  handleAddressChange(address: any) {
+    let requestApi = this.req.requestApi(address.geometry.location.lat(),address.geometry.location.lng());
+    requestApi.subscribe( (searchresult:SearchResults) =>{
+      this.currentLocation = address.name;
+      this.hourly = searchresult.hourly;
+      this.current = searchresult.currently;
+      this.daily = searchresult.daily;
+    });
+    console.log(address,'changed')
   }
 
   ngOnDestroy():void{

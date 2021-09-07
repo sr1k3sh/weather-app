@@ -8,8 +8,7 @@
     transition: 0.3s all;
     position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translate(0%, -50%);
+    top: 10px;
 }
 .add:hover{
     scale: 1.1;

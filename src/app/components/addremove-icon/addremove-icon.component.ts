@@ -12,6 +12,7 @@ export class AddremoveIconComponent implements OnInit {
 
   @Output() valueChange = new EventEmitter();
   public expand:boolean = false;
+  public classes:string = "add expand";
   // @Output() newItemEvent = new EventEmitter<string>();
 
   // addNewItem(value: string) {
@@ -26,12 +27,14 @@ export class AddremoveIconComponent implements OnInit {
     if(evt.target.classList.contains('expand')){
       evt.target.classList.remove("expand");
       this.expand = true;
+      this.classes = "add";
     }
     else{
       evt.target.classList.add("expand");
       this.expand = false;
+      this.classes = "add expand";
     }
-    let obj = {expand:this.expand,index:this.index};
+    let obj = {expand:this.expand,index:this.index,classes:this.classes};
     this.valueChange.emit(obj);
   }
 

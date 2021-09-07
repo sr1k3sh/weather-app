@@ -5,8 +5,9 @@
             <app-weathericon icon={{val.icon}} width="42"></app-weathericon>
             <div class="temperature-title" *ngIf="i==0">Today</div>
             <div class="temperature-title" *ngIf="i!=0">{{val.time*1000 | date:'EEEE'}}</div>
-            <div #myIdentifier class="temperature-index-wrapper" *ngIf="identifierWidth" [ngStyle]="{'left':((((val.temperatureMin - 32) / 1.8) - ((low - 32) /1.8))*10 - 2)+'%'}">
-                <!-- <div class="temperature-index-back" [ngStyle]="{'width': ((high-low)/high)*100+'%'}"> -->
+            <div class="temperature-index-back"></div>
+
+            <div #myIdentifier class="temperature-index-wrapper" *ngIf="identifierWidth" [ngStyle]="{'left':((val.temperatureMin - low))+'%'}">
                     <span >{{val.temperatureMin | temperatureConverter:"C"}}°</span>
                     <span class="temperature-index" [ngStyle]="{ 'width' : (((val.temperatureMax-32)/1.8 - (val.temperatureMin-32)/1.8))*10+'%'}"></span>
                     <span>{{val.temperatureMax | temperatureConverter:"C"}}°</span>
@@ -16,29 +17,29 @@
             <app-addremove-icon data-index={{i}} (valueChange)="expandStatus($event)"></app-addremove-icon>
         </div>
         <div class="weekly-weather-body" *ngIf="expandObj.expand && i==expandObj.index">
-            <div class="title">Clear throughout the day.</div>
+            <div class="title">{{expandObj.data.summary}}</div>
             <div class="weather-body">
                 <div class="low-high" [@fadeInAnimation]>
                     <div class="low margin-right-10">
-                        <span class="temperature margin-right-10">{{val.temperatureLow | temperatureConverter:"C"}}°</span>
-                        <span>{{val.temperatureLowTime*1000 | date:"hha"}}</span>
+                        <span class="temperature margin-right-10">{{expandObj.data.temperatureLow | temperatureConverter:"C"}}°</span>
+                        <span>{{expandObj.data.temperatureLowTime*1000 | date:"hha"}}</span>
                     </div>
                     <div class="margin-right-10">
                         <img width="12px" height="10px" src="/assets/svgs/fast-forward.svg"/>
                     </div>
                     <div class="high">
-                        <span class="temperature margin-right-10">{{val.temperatureHigh | temperatureConverter:"C"}}°</span>
-                        <span>{{val.temperatureHighTime*1000 | date:"hha"}}</span>
+                        <span class="temperature margin-right-10">{{expandObj.data.temperatureHigh | temperatureConverter:"C"}}°</span>
+                        <span>{{expandObj.data.temperatureHighTime*1000 | date:"hha"}}</span>
                     </div>
                 </div>
                 <div class="rise-set" [@fadeInAnimation]>
                     <div class="margin-right-10">
                         <img width="32" src="assets/image/sunrise.png">
-                        <span>{{val.sunriseTime*1000 | date:"hha"}}</span>
+                        <span>{{expandObj.data.sunriseTime*1000 | date:"hha"}}</span>
                     </div>
                     <div>
                         <img width="32" src="assets/image/sunset.png">
-                        <span>{{val.sunsetTime*1000 | date:"hha"}}</span>
+                        <span>{{expandObj.data.sunsetTime*1000 | date:"hha"}}</span>
                     </div>
                 </div>
             </div>

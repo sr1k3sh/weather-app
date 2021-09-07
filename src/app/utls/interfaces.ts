@@ -15,3 +15,9 @@ export interface CurrentResults {
 export interface OpenResults{
     name:string;
 }
+
+export interface ExpandObj {
+    expand?: false;
+    index?: 0;
+    data?:any;
+}

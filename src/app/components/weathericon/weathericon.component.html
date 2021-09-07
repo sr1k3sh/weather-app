@@ -35,5 +35,8 @@
     <div *ngSwitchCase="'partly-cloudy-day'">
         <img [width]="width" [src]='"assets/svgs/cloudy.svg"'/>
     </div>
+    <div *ngSwitchCase="'placeholder'">
+        <img [width]="width" [src]='"assets/svgs/placeholder.svg"'/>
+    </div>
     <div *ngSwitchDefault><img [width]="width" src="assets/svgs/sleet.svg"/></div>
 </div>

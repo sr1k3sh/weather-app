@@ -20,6 +20,7 @@
     backdrop-filter: blur(5px);
     padding: 5px;
     border-radius: 5px;
+    position:relative;
 }
 .weeekly-weather-holder .weekly-weather-head{
     display: flex;
@@ -56,7 +57,7 @@
     background-color: #2e2838;
     position: absolute;
     height: 30px;
-    left: 19%;
+    left: 164px;
     border-radius: 15px;
     top: 13px;
 }

@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@types/mapbox__mapbox-gl-geocoder": "^4.7.1",
     "cors": "^2.8.5",
     "ngx-google-places-autocomplete": "^2.0.5",
     "ngx-scrollbar": "^8.0.0",
@@ -32,8 +33,10 @@
     "@angular-devkit/build-angular": "~12.2.2",
     "@angular/cli": "~12.2.2",
     "@angular/compiler-cli": "~12.2.0",
+    "@mapbox/mapbox-gl-geocoder": "^4.7.3",
     "@netlify-builder/deploy": "^4.1.2",
     "@types/jasmine": "~3.8.0",
+    "@types/mapbox-gl": "^1.8.2",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
@@ -41,6 +44,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "mapbox-gl": "^2.4.1",
     "typescript": "~4.3.5"
   }
 }
